@@ -39,6 +39,18 @@ function getDraggableRows(table) {
   return Array.from(table.rows).filter(row => !row.classList.contains("person"));
 }
 
+function swapRows(table, row1, row2) {
+    
+    var parent = row1.parentNode;
+
+
+    var afterRow2 = row2.nextSibling;
+    
+    parent.insertBefore(row2, row1);
+
+    parent.insertBefore(row1, afterRow2);
+}
+
 
 getDraggableRows(indexTable).forEach(row => {
   row.draggable = true;
@@ -73,17 +85,7 @@ getDraggableRows(indexTable).forEach(row => {
 
 
 
-function swapRows(table, row1, row2) {
-    
-    var parent = row1.parentNode;
 
-
-    var afterRow2 = row2.nextSibling;
-    
-    parent.insertBefore(row2, row1);
-
-    parent.insertBefore(row1, afterRow2);
-}
 
 
 
